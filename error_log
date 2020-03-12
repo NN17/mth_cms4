@@ -1,0 +1,8 @@
+[27-Nov-2016 14:16:51 America/Chicago] PHP Fatal error:  Out of memory (allocated 262144) (tried to allocate 12288 bytes) in /home/mmthiha/public_html/msp/system/core/CodeIgniter.php on line 111
+[02-Dec-2016 11:10:07 America/Chicago] PHP Fatal error:  Out of memory (allocated 786432) (tried to allocate 1920 bytes) in /home/mmthiha/public_html/msp/system/core/compat/password.php on line 115
+[02-Dec-2016 11:10:14 America/Chicago] PHP Fatal error:  Out of memory (allocated 2621440) (tried to allocate 49152 bytes) in /home/mmthiha/public_html/msp/system/libraries/Email.php on line 1386
+[27-Oct-2018 07:57:58 UTC] PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 65536 bytes) in /home/mmthiha/public_html/msp/system/database/DB_query_builder.php on line 1738
+[27-Oct-2018 07:57:58 UTC] PHP Fatal error:  Out of memory (allocated 2097152) (tried to allocate 65536 bytes) in /home/mmthiha/public_html/msp/system/database/DB.php on line 171
+[10-Feb-2019 18:08:53 Asia/Rangoon] PHP Fatal error:  mail(): Command exceeds the allowed length of 4096 bytes in /home/mmthiha/public_html/msp/system/libraries/Email.php on line 1862
+[18-Feb-2019 01:05:34 Asia/Rangoon] PHP Fatal error:  mail(): Command exceeds the allowed length of 4096 bytes in /home/mmthiha/public_html/msp/system/libraries/Email.php on line 1862
+[20-Feb-2019 12:53:36 Asia/Rangoon] PHP Fatal error:  mail(): Command exceeds the allowed length of 4096 bytes in /home/mmthiha/public_html/msp/system/libraries/Email.php on line 1862
