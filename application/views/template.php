@@ -30,7 +30,7 @@
 
 	<!-- Navigation Start -->
 
-	<div class="nav-wrapper <?php if($this->session->userdata('loginState') == true){ echo 'margin';}?>">
+	<div class="nav-wrapper">
 		<?php if(isset($nav)):?>
 		<?php $this->load->view($nav)?>
 		<?php endif;?>
@@ -211,7 +211,7 @@
 	
 
 	<script type="text/javascript" src="asset/js/jquery.js"></script>
-	<script type="text/javascript" src="bootstrap/dis/js/bootstrap.js"></script>
+	<script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="asset/js/jquery-ui.js"></script>
 	<script type="text/javascript" src="asset/js/jquery.datetimepicker.js"></script>
 	<script type="text/javascript" src="asset/js/devrama.js"></script>

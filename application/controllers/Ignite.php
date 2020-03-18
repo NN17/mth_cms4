@@ -423,7 +423,7 @@ class Ignite extends CI_Controller {
 		$slogam_row = $this->db->count_all_results('slogam_tbl');
 		if($slogam_row < 1){
 			$insert_slogam = array(
-				'logo' => 'system_img/logo.png',
+				'logo' => 'asset/system_img/logo.png',
 				'slogam' => 'Ignite Source'
 				);
 			$this->db->insert('slogam_tbl',$insert_slogam);
@@ -1870,5 +1870,19 @@ class Ignite extends CI_Controller {
 		$this->email->send();
 
 		redirect('ignite/index');
+	}
+
+	public function write(){
+		if(!file_exists('./application/views/blocks/main_menu.php')){
+			$code = read_file('./application/views/backend/menu.php');
+			$code = str_replace('variable','nav_relatedId',$code);
+			// chmod('./application/views/blocks/', 0755);
+			if(write_file(FCPATH .'/application/views/blocks/main_menu.php',$code,'w')){
+				echo 'writed';
+			}
+			else{
+				echo 'Oops, Something wrong !';
+			}
+		}
 	}
 }
