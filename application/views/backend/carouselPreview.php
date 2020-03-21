@@ -7,8 +7,12 @@
 		<div class="mid-padding"> 
 		    <div id="content">
 		        <ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-		            <li class="active"><a href="#preview" data-toggle="tab">Preview</a></li>
-		            <li><a href="#edit" data-toggle="tab">Edit</a></li>
+		            <li class="nav-item">
+		            	<a class="nav-link active" href="#preview" data-toggle="tab">Preview</a>
+		            </li>
+		            <li class="nav-item">
+		            	<a class="nav-link" href="#edit" data-toggle="tab">Edit</a>
+		            </li>
 		        </ul>
 		        <div id="my-tab-content" class="tab-content">
 
@@ -38,7 +42,7 @@
 
 		            	<?php foreach($imgs as $img):?>
 		            		<div class="col-md-4 carousel-preview mid-margin">
-		            			<img class="img-responsive center-block" src="<?=$img['path']?>" />
+		            			<img class="img-fluid center-block" src="<?=$img['path']?>" />
 
 		            			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="img_edit"><i class="fa fa-chevron-circle-down text-ignite"></i></a>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="img_edit">

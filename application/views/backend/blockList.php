@@ -3,21 +3,19 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite">All Blocks</h3>
-	<hr/>
 
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>No</th>
+				<th>#</th>
 				<th>Block Name</th>
 				<th>Note</th>
 				<th>File Name</th>
 				<th>Type</th>
 				<th>Related Link</th>
 				<th>Layout</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<th>Actions</th>
+
 			</tr>
 		</thead>
 		<tbody>
@@ -33,8 +31,10 @@
 					<td><?=$block['type']?></td>
 					<td><?=$this->main_model->link($block['relatedLink'])?></td>
 					<td><?=$this->main_model->layout($block['layout'])?></td>
-					<td class="text-center"><a href="ignite/editBlock/<?=$block['Id']?>"><i class="fa fa-edit text-warning"></i></a></td>
-					<td class="text-center"><a href="#" data-toggle="modal" data-target="#Modal" id="blockDelete" value="<?=$block['Id']?>" file="<?=$block['file']?>"><i class="fa fa-remove text-danger"></i></a></td>
+					<td class="text-center">
+						<a href="ignite/editBlock/<?=$block['Id']?>" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
+						<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#Modal" id="blockDelete" value="<?=$block['Id']?>" file="<?=$block['file']?>"><i class="fa fa-times"></i></a>
+					</td>
 				</tr>
 			<?php
 				$i++; 

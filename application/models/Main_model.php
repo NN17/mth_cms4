@@ -520,6 +520,7 @@
 		{
 			$config['upload_path'] = './'.$path.'/';
 			$config['allowed_types'] = 'gif|jpg|jpeg|png';
+			$config['max_size'] = '0';
 			$this->load->library('upload', $config);
 			
 			if ($this->upload->do_upload($file))

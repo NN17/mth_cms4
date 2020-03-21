@@ -22,13 +22,17 @@
 	font-family: 'LatoLatin' !important;
 }
 
+.main-wrapper{
+	position: relative;
+}
+
 .margin{
-	margin-top: 31px;
+	top: 29px;
 }
 
 @media screen and (max-width: 767px) {
 	.margin{
-		margin-top: 81px;
+		top: 29px;
 	}
 }
 
@@ -82,7 +86,7 @@ header img{
 
 .ignite-nav{
 	margin-bottom: 0px !important;
-	background: rgba(246, 183, 31, 0.76);
+	background: #111 !important;
 	border-radius: 0px !important;
 	min-height: 0px;
 	border: 0px !important;
@@ -93,16 +97,17 @@ header img{
 	position: fixed;
 }
 
-.margin{
-	top: 31px;
-}
-
 .ignite-nav ul li a{
 	padding: 5px 10px 5px 10px;
 }
 
 .text-ignite{
 	color: #DB6B24 !important;
+}
+
+.ignite-footer{
+	position: relative;
+	bottom: 0px;
 	background: #1D1D1D;
 }
 
@@ -115,13 +120,13 @@ header img{
 }
 
 .ignite-nav a{
-	color: #333;
+	color: #eee;
 	text-decoration: none;
 }
 
 .ignite-nav a:hover{
-	background: rgba(77, 75, 75, 0.34) !important;
-	color: #eee;
+	background: eee !important;
+	color: #333;
 }
 
 .ignite-nav .open > a, .ignite-nav .open > a:hover, .ignite-nav .open > a:focus {
@@ -129,12 +134,13 @@ header img{
 	color: #eee;
 }
 
-.ignite-nav ul.dropdown-menu{
-	background: rgba(147, 119, 51, 0.54);
+.ignite-nav div.dropdown-menu{
+	background: #111111ba;
 	border-radius: 2px;
+	font-size: 12px;
 }
 
-.ignite-nav ul.dropdown-menu li a{
+.ignite-nav div.dropdown-menu li a{
 	color: #eee;
 }
 
@@ -264,7 +270,7 @@ table th{
 }
 
 table th, table td{
-	font-size: 11px;
+	font-size: 12px;
 }
 
 table tbody tr:nth-child(even){
@@ -627,4 +633,15 @@ option .divided{
 
 .my-pagination li a{
 	text-decoration: none !important;
+}
+
+.btn-circle{
+	border-radius: 50%;
+	padding: 4px 8px !important;
+}
+
+div.divider{
+	border-bottom: 1px solid #dad9d9;
+    width: 100%;
+    margin: 10px 0px;
 }

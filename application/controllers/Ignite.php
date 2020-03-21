@@ -631,7 +631,7 @@ class Ignite extends CI_Controller {
 			}
 		$data['page'] = 1;
 		$data['content'] = 'userfiles/home';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template',$data);
 
 
 	}
@@ -643,16 +643,18 @@ class Ignite extends CI_Controller {
 	public function layout(){
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/layout';
-		$this->load->view('template',$data);
+		$this->load->view('template_back',$data);
 	}
 
 	// ---------------- Navigation & Link Structure -----------------
 
 	public function navigation(){
+		$data['title'] = 'Navigation';
+		$data['link'] = 'ignite/navigation';
 		$data['menus'] = $this->main_model->get_data('menu_tbl');
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/navigation';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	// public function newMenu(){
@@ -682,12 +684,14 @@ class Ignite extends CI_Controller {
 	}
 
 	public function navEdit(){
+		$data['title'] = 'Edit Navigation';
+		$data['link'] = 'ignite/navEdit';
 		$id = $this->uri->segment(3);
 
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/navEdit';
 		$data['editData'] = $this->main_model->get_limit_data('menu_tbl','Id',$id)->row_array();
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function navUpdate(){
@@ -708,11 +712,13 @@ class Ignite extends CI_Controller {
 	}
 
 	public function newLink(){
+		$data['title'] = 'Create New Link';
+		$data['link'] = 'ignite/newLink';
 		$menuId = $this->uri->segment(3);
 		$data['navigation'] = $this->main_model->get_limit_data('menu_tbl','Id',$menuId)->row_array();
 		// $data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/newLink';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addLink(){
@@ -746,11 +752,13 @@ class Ignite extends CI_Controller {
 	}
 
 	public function editLink(){
+		$data['title'] = 'Edit Link';
+		$data['link'] = 'ignite/editLink';
 		$linkId = $this->uri->segment(3);
 
 		$data['link'] = $this->main_model->get_limit_data('link_structure_tbl','Id',$linkId)->row_array();
 		$data['content'] = 'backend/editLink';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function updateLink(){
@@ -805,9 +813,11 @@ class Ignite extends CI_Controller {
 	// ---------------- Logo & Slogam -----------------
 
 	public function slogam(){
+		$data['title'] = 'Logo & Slogam';
+		$data['link'] = 'ignite/slogam';
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/slogam';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addSlogam(){
@@ -832,14 +842,16 @@ class Ignite extends CI_Controller {
 	// ------------ Block functions ----------------
 
 	public function newBlock(){
+		$data['title'] = 'New Block';
+		$data['link'] = 'ignite/newBlock';
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/newBlock';
 		$data['layouts'] = $this->main_model->get_data('layout_tbl');
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function checkBlockName(){
-		$name = $this->uri->segment(3);
+		$name = $this->input->post('name');
 		if(file_exists('./application/views/blocks/'.$name.'.php')){
 			echo '<i class="fa fa-warning text-warning"></i> Error: File name already exist.';
 		}
@@ -899,17 +911,21 @@ class Ignite extends CI_Controller {
 	// ********* Menu Block *********
 
 	public function menuBlock(){
+		$data['title'] = 'Menu Block';
+		$data['link'] = 'ignite/menuBlock';
 		$id = $this->uri->segment(3);
 
 		$data['blockData'] = $this->main_model->get_limit_data('blocks_tbl','Id',$id)->row_array();
 		// $data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/menuBlock';
-		$this->load->view('template',$data);
+		$this->load->view('template_back',$data);
 	}
 
 	// ********** View Block ***********
 
 	public function viewBlock(){
+		$data['title'] = 'View Block';
+		$data['link'] = 'ignite/viewBlock';
 		$id = $this->uri->segment(3);
 
 		// loading Ckeditor ..
@@ -926,7 +942,7 @@ class Ignite extends CI_Controller {
 		$data['blockData'] = $this->main_model->get_limit_data('blocks_tbl','Id',$id)->row_array();
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/viewBlock';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addViewBlock(){
@@ -979,7 +995,7 @@ class Ignite extends CI_Controller {
 		$data['contentData'] = $this->main_model->get_limit_data('content_tbl','Id',$contentId)->row_array();
 
 		$data['content'] = 'backend/editViewBlock';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function updateViewBlock(){
@@ -1001,12 +1017,14 @@ class Ignite extends CI_Controller {
 	// ************ Carousel Block ************
 
 	public function carouselBlock(){
+		$data['title'] = 'Carousel Block';
+		$data['link'] = 'ignite/carouselBlock';
 		$id = $this->uri->segment(3);
 
 		$data['blockData'] = $this->main_model->get_limit_data('blocks_tbl','Id',$id)->row_array();
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/carouselBlock';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addCarousel(){
@@ -1027,7 +1045,7 @@ class Ignite extends CI_Controller {
 
 		for($i=1; $i<=3; $i++){
 			$carouselImg = array(
-				'path' => 'system_img/img'.$i.'.jpg',
+				'path' => 'asset/system_img/img'.$i.'.jpg',
 				'carouselId' => $carouselId
 				);
 			$this->db->insert('carousel_img_tbl',$carouselImg);
@@ -1041,14 +1059,18 @@ class Ignite extends CI_Controller {
 	}
 
 	public function previewCarousel(){
+		$data['title'] = 'Carousel Preview';
+		$data['link'] = 'ignite/previewCarousel';
 		$data['carouselId'] = $this->uri->segment(3);
 
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$data['carouselId'])->row_array();
 		$data['content'] = 'backend/carouselPreview';
-		$this->load->view('template',$data);
+		$this->load->view('template_back',$data);
 	}
 
 	public function blockList(){
+		$data['title'] = 'Block List';
+		$data['link'] = 'ignite/blockList';
 
 		// ************** Pagination Start **************
 		
@@ -1088,16 +1110,18 @@ class Ignite extends CI_Controller {
 
 		$data['blocks'] = $this->main_model->get_data_pagination('blocks_tbl','Id',$start,20)->result_array();
 		$data['content'] = 'backend/blockList';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function editBlock(){
+		$data['title'] = 'Edit Block';
+		$data['link'] = 'ignite/editBlock';
 		$blockId = $this->uri->segment(3);
 
 		$data['block'] = $this->main_model->get_limit_data('blocks_tbl','Id',$blockId)->row_array();
 		$data['layouts'] = $this->main_model->get_data('layout_tbl');
 		$data['content'] = 'backend/editBlock';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function updateBlock(){
@@ -1150,17 +1174,21 @@ class Ignite extends CI_Controller {
 	// ---------------- Carousel Functions ------------------
 
 	public function carousel(){
+		$data['title'] = 'Carousel';
+		$data['link'] = 'ignite/carousel';
 		$data['content'] = 'backend/carousel_list';
 		$data['carousels'] = $this->main_model->get_data('carousel_tbl');
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function editCarousel(){
+		$data['title'] = 'Edit Carousel';
+		$data['link'] = 'ignite/editCarousel';
 		$carouselId = $this->uri->segment(3);
 
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$carouselId)->row_array();
 		$data['content'] = 'backend/editCarousel';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function updateCarousel(){
@@ -1181,15 +1209,19 @@ class Ignite extends CI_Controller {
 	}
 
 	public function newCarouselImg(){
+		$data['title'] = 'New Carousel Image';
+		$data['link'] = 'ignite/newCarouselImg';
 		$carouselId = $this->uri->segment(3);
 
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$carouselId)->row_array();
 
 		$data['content'] = 'backend/newCarouselImg';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addCarouselImg(){
+		$data['title'] = 'Add New Carousel Image';
+		$data['link'] = 'ignite/addCarouselImg';
 		$carouselId = $this->uri->segment(3);
 
 		$file = $this->main_model->upload_img('carouselImg','upload_img');
@@ -1205,29 +1237,32 @@ class Ignite extends CI_Controller {
 				$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$carouselId)->row_array();
 				$data['err_msg'] = 'Error : Your upload Image exceed the maximum size of limit';
 				$data['content'] = 'backend/newCarouselImg';
-				$this->load->view('template',$data);
+				$this->load->view('layouts/template_back',$data);
 			}
 	}
 
 	public function editCarouselImg(){
+		$data['title'] = 'Edit Carousel Image';
+		$data['link'] = 'ignite/editCarouselImg';
 		$imageId = $this->uri->segment(3);
 
 		$data['image'] = $this->main_model->get_limit_data('carousel_img_tbl','Id',$imageId)->row_array();
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$data['image']['carouselId'])->row_array();
 		$data['content'] = 'backend/editCarouselImg';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function updateCarouselImg(){
 		$imageId = $this->uri->segment(3);
 		$carouselId = $this->uri->segment(4);
+		$data['image'] = $this->main_model->get_limit_data('carousel_img_tbl','Id',$imageId)->row_array();
 
 		$image = $this->main_model->get_limit_data('carousel_img_tbl','Id',$imageId)->row_array();
 		if(file_exists($image['path'])){
 			unlink($image['path']);
 		}
 
-		$file = $this->main_model->upload_img('carouselImg','upload_img');
+		$file = $this->main_model->upload_img('carouselImg','asset/upload_img');
 		if($file != false){
 			$update = array(
 				'path' => $file
@@ -1240,7 +1275,7 @@ class Ignite extends CI_Controller {
 				$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$carouselId)->row_array();
 				$data['err_msg'] = 'Error : Your upload Image exceed the maximum size of limit';
 				$data['content'] = 'backend/editCarouselImg';
-				$this->load->view('template',$data);
+				$this->load->view('template_back',$data);
 			}
 	}
 
@@ -1452,14 +1487,18 @@ class Ignite extends CI_Controller {
 	// -------------------- Content Functions -------------------------
 
 	public function contentType(){
+		$data['title'] = 'Content Type';
+		$data['link'] = 'ignite/contentType';
 		$data['content'] = 'backend/contentType';
 		$data['contentTypes'] = $this->main_model->get_data('content_type_tbl');
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function newContentType(){
+		$data['title'] = 'New Content Type';
+		$data['link'] = 'ignite/newContentType';
 		$data['content'] = 'backend/newContentType';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addContentType(){
@@ -1478,6 +1517,8 @@ class Ignite extends CI_Controller {
 	}
 
 	public function contentItem(){
+		$data['title'] = 'Content Item';
+		$data['link'] = 'ignite/contentItem';
 		$contentTypeId = $this->uri->segment(3);
 
 		// loading Ckeditor ..
@@ -1494,7 +1535,7 @@ class Ignite extends CI_Controller {
 		$data['contentType'] = $this->main_model->get_limit_data('content_type_tbl','Id',$contentTypeId)->row_array();
 		$data['contentItems'] = $this->main_model->get_limit_data('content_items_tbl','contentTypeId',$contentTypeId)->result_array();
 		$data['content'] ='backend/contentItem';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function checkItemName(){
@@ -1533,6 +1574,8 @@ class Ignite extends CI_Controller {
 	}
 
 	public function addContentByType(){
+		$data['title'] = 'Add Content By Type';
+		$data['link'] = 'ignite/addContentByType';
 		$contentTypeId = $this->uri->segment(3);
 
 		// loading Ckeditor ..
@@ -1548,7 +1591,7 @@ class Ignite extends CI_Controller {
 
 		$data['contentType'] = $this->main_model->get_limit_data('content_type_tbl','Id',$contentTypeId)->row_array();
 		$data['content'] = 'backend/addContentByType';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function addContents(){
@@ -1603,6 +1646,8 @@ class Ignite extends CI_Controller {
 	}
 
 	public function allContent(){
+		$data['title'] = 'All Contents';
+		$data['link'] = 'ignite/allContent';
 		// ************** Pagination Start **************
 		
 		$row = $this->main_model->get_num_row('content_tbl');
@@ -1641,10 +1686,12 @@ class Ignite extends CI_Controller {
 
 		$data['contentDatas'] = $this->main_model->get_data_pagination('content_tbl','createdDate',$start,20)->result_array();
 		$data['content'] = 'backend/allContent';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function editContent(){
+		$data['title'] = 'Edit Content';
+		$data['link'] = 'ignite/editContent';
 		$contentId = $this->uri->segment(3);
 		$contentTypeId = $this->uri->segment(4);
 
@@ -1662,7 +1709,7 @@ class Ignite extends CI_Controller {
 		$data['contentData'] = $this->main_model->get_limit_data('content_tbl','Id',$contentId)->row_array();
 		$data['contentType'] = $this->main_model->get_limit_data('content_type_tbl','Id',$contentTypeId)->row_array();
 		$data['content'] = 'backend/editContent';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function updateContents(){
@@ -1714,6 +1761,8 @@ class Ignite extends CI_Controller {
 	}
 
 	public function contentView(){
+		$data['title'] = 'Content View';
+		$data['link'] = 'ignite/contentView';
 		$contentId = $this->uri->segment(3);
 
 		$data['contentData'] = $this->main_model->get_limit_data('content_tbl','Id',$contentId)->row_array();
@@ -1743,6 +1792,7 @@ class Ignite extends CI_Controller {
 	// --------------------------- User Functions -----------------------------
 
 	public function user_setting(){
+
 		$userId = $this->uri->segment(3);
 
 		$data['userData'] = $this->main_model->get_limit_data('users_tbl','Id',$userId)->row_array();
@@ -1884,5 +1934,9 @@ class Ignite extends CI_Controller {
 				echo 'Oops, Something wrong !';
 			}
 		}
+	}
+
+	public function lte(){
+		$this->load->view('template_back');
 	}
 }

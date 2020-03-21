@@ -107,3 +107,7 @@ body{
 hr{
 	border-color: #ddd;
 }
+
+.navbar{
+	padding: 0px;
+}

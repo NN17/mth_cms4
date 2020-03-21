@@ -3,9 +3,6 @@
 ?>
 
 	<div class="backend">
-		<h3 class="text-ignite">All Contents</h3>
-		<hr/>
-
 		<table class="table table-bordered">
 			<thead>
 				<tr>

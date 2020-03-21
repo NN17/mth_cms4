@@ -6,7 +6,7 @@
 <div class="backend">
 	<h3 class="text-ignite">Edit Carousel Image</h3>
 	<hr/>
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-md-6">
 			<!-- Error Message -->
 			<?php if(isset($err_msg)):?>
@@ -23,7 +23,9 @@
 								<?=form_upload('carouselImg',set_value("logo"),'class="upload" onchange="readURL(this);" accept=".jpg,.png,.gif"')?>
 							</div>
 						</div>
-						<div class="preview col-md-8"><img id="blah" src="#" alt="Image Preview" class="img-responsive" /></div>
+						<div class="preview col-md-8">
+							<img id="blah" src="asset/system_img/no-preview-available.png" alt="Image Preview" class="img-fluid" />
+						</div>
 					</div>
 				</div>
 				<div class="form-group">

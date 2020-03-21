@@ -9,12 +9,11 @@
 	<table class="table table-bordered">
 		<thead>
 			<tr>
-				<th>No</th>
+				<th>#</th>
 				<th>Carousel Name</th>
 				<th>Note</th>
 				<th>Carousel Type</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,8 +26,10 @@
 					<td><?=anchor('ignite/previewCarousel/'.$carousel['Id'],$carousel['name'],'title="Preview"')?></td>
 					<td><?=$carousel['note']?></td>
 					<td><?=carouselType($carousel['type'])?></td>
-					<td class="text-center"><a href="ignite/editCarousel/<?=$carousel['Id']?>"><i class="fa fa-edit text-warning"></i></a></td>
-					<td class="text-center"><a href=""><i class="fa fa-remove text-danger"></i></a></td>
+					<td class="text-center">
+						<a href="ignite/editCarousel/<?=$carousel['Id']?>" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
+						<a href="javascript:void(0);" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
+					</td>
 				</tr>
 			<?php 
 				$i++;

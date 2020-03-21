@@ -3,11 +3,9 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite">Content Type</h3>
-	<hr/>
 
-	<a href="ignite/newContentType"><i class="fa fa-plus-square-o"></i> Add Content Type</a>
-	<ul class="mid-margin list-unstyled">
+	<a href="ignite/newContentType" class="btn btn-primary"><i class="fa fa-plus-square-o"></i> Add Content Type</a>
+	<ul class="mid-margin list-unstyled py-3">
 		<?php foreach($contentTypes as $contentType):?>
 			<li><a href="ignite/contentItem/<?=$contentType['Id']?>"><i class="fa fa-star"></i> <?=$contentType['name']?></a></li>
 		<?php endforeach;?>	

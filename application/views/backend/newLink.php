@@ -3,56 +3,61 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite mid-margin">Add Links ( <?=$navigation['name']?> )</h3>
-	<hr/>
-
-	<div class="row">
-		<div class="col-md-6">
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="card">
 			<?=form_open_multipart('ignite/addLink/'.$navigation['Id'])?>
-				<div class="form-group">
-					<?=form_label('Name')?>
-					<?=form_input('name','','class="form-control" placeholder="Name" required="required"')?>
-				</div>
-				<div class="form-group">
-					<?=form_label('Note')?>
-					<?=form_textarea('note','','class="form-control" placeholder="Note"')?>
-				</div>
-				<div class="form-group">
-					<?php
-						$options = array('' => 'Select menu type','Main' => 'Main menu','Sub' => 'Sub menu');
-						echo form_dropdown('menuType',$options,'Main','class="form-control" id="type" required="required"');
-					?>
-				</div>
+				<div class="card-body">
+					<div class="form-group">
+						<?=form_label('Name')?>
+						<?=form_input('name','','class="form-control" placeholder="Name" required="required"')?>
+					</div>
+					<div class="form-group">
+						<?=form_label('Note')?>
+						<?=form_textarea('note','','class="form-control" placeholder="Note"')?>
+					</div>
+					<div class="form-group">
+						<?php
+							$options = array('' => 'Select menu type','Main' => 'Main menu','Sub' => 'Sub menu');
+							echo form_dropdown('menuType',$options,'Main','class="form-control" id="type" required="required"');
+						?>
+					</div>
 
-				<div class="form-group">
-					<?=form_label('Main Menu')?>
-					<select name="mainMenu" class="form-control" id="main" required="required" disabled="disabled">
-						<option value="">Select Main Menu</option>
-					<?php
-						$mainMenus = $this->main_model->get_limit_datas('link_structure_tbl','menuId',$navigation['Id'],'type','Main','sort','asc')->result_array();
-						foreach($mainMenus as $main):
-					?>
-						<option value="<?=$main['Id']?>"><?=$main['name']?></option>
-					<?php endforeach;?>
-					</select>
-				</div>
-				<div class="form-group">
-					<?=form_label('Image')?>
-					<div class="file-upload small-padding">
-						<div class="col-md-4">
-							<div class="fileUpload btn btn-primary">
-								<span class="fa fa-image"> Browse</span>
-								<?=form_upload('userfile',set_value("userfile"),'class="upload" onchange="readURL(this);" accept=".jpg,.png,.gif"')?>
+					<div class="form-group">
+						<?=form_label('Main Menu')?>
+						<select name="mainMenu" class="form-control" id="main" required="required" disabled="disabled">
+							<option value="">Select Main Menu</option>
+						<?php
+							$mainMenus = $this->main_model->get_limit_datas('link_structure_tbl','menuId',$navigation['Id'],'type','Main','sort','asc')->result_array();
+							foreach($mainMenus as $main):
+						?>
+							<option value="<?=$main['Id']?>"><?=$main['name']?></option>
+						<?php endforeach;?>
+						</select>
+					</div>
+					<div class="form-group">
+						<?=form_label('Image')?>
+						<div class="file-upload small-padding">
+							<div class="col-md-4">
+								<div class="fileUpload btn btn-primary">
+									<span class="fa fa-image"> Browse</span>
+									<?=form_upload('userfile',set_value("userfile"),'class="upload" onchange="readURL(this);" accept=".jpg,.png,.gif"')?>
+								</div>
+							</div>
+							<div class="preview col-md-8">
+								<img id="blah" src="asset/system_img/no-preview-available.png" alt="Image Preview" class="img-fluid" />
 							</div>
 						</div>
-						<div class="preview col-md-8"><img id="blah" src="#" alt="Image Preview" class="img-responsive" /></div>
 					</div>
 				</div>
-				<div class="form-group">
-					<a href="ignite/navigation" class="btn btn-danger">Cancel</a>
-					<?=form_submit('save','Save','class="btn btn-warning"')?>
+				<div class="card-footer">
+					<div class="form-group">
+						<a href="ignite/navigation" class="btn btn-danger">Cancel</a>
+						<?=form_submit('save','Save','class="btn btn-warning"')?>
+					</div>
 				</div>
 			<?=form_close()?>
+			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="menu-structure">

@@ -3,22 +3,20 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite">Content Items ( <?=$contentType['name']?> )</h3>
-	<hr/>
 
 
 	<div id="content">
 		<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
-            <li><a href="#add" data-toggle="tab">Add</a></li>
-            <li class="active"><a href="#preview" data-toggle="tab">Preview</a></li>
+            <li class="nav-item"><a href="#add" class="nav-link" data-toggle="tab">Add</a></li>
+            <li class="nav-item"><a href="#preview" class="nav-link active" data-toggle="tab">Preview</a></li>
         </ul>
 
         <div id="my-tab-content" class="tab-content">
 			<!-- ********** Add ********** -->
 			<div class="tab-pane" id="add">
-				<div class="row">
+				<div class="row justify-content-center bg-white h-100">
 					<div class="col-md-6">
-						<h4 class="bg-info small-side-padding">Add New Item</h4>
+						<h4 class="small-side-padding py-3 text-center">Add New Item</h4>
 						<?=form_open('ignite/addContentItem/'.$contentType['Id'],'id="save_item"')?>
 							<div class="form-group">
 								<?=form_label('Name')?> <i class="fa fa-spinner fa-spin text-ignite" aria-hidden="true" id="item_spin" ></i>
@@ -65,9 +63,9 @@
 
 			<div class="tab-pane active" id="preview">
 				
-				<div class="row">
+				<div class="row justify-content-center bg-white">
 					<div class="col-md-6">
-						<h4 class="bg-info small-side-padding">Preview</h4>
+						<h4 class="small-side-padding py-3 text-center">Preview</h4>
 						
 						<?php foreach($contentItems as $item):?>
 							<?php if($item['type'] != 'body' || $item['type'] != 'summary'):?>

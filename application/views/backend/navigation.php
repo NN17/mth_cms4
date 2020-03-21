@@ -3,18 +3,14 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite mid-margin">Navigation</h3>
-	<hr/>
-
-	<!-- <a href="ignite/newMenu"><i class="fa fa-plus"> Add New Menu</i></a> -->
+	
 	<table class="table table-bordered small-margin">
 		<thead>
 			<tr>
-				<th>No</th>
+				<th>#</th>
 				<th>Name</th>
 				<th>Note</th>
-				<th>Edit</th>
-				<th>Delete</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -26,8 +22,10 @@
 					<td class="text-right"><?=$i?></td>
 					<td><a href="ignite/newLink/<?=$menu['Id']?>" title="To create link structure"><?=$menu['name']?></a></td>
 					<td><?=$menu['note']?></td>
-					<td class="text-center bg-warning"><a href="ignite/navEdit/<?=$menu['Id']?>"><i class="fa fa-edit text-warning"></i></a></td>
-					<td class="text-center bg-danger"><a href="" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$menu['Id']?>" table="menu_tbl" func="navigation"><i class="fa fa-remove text-danger"></i></a></td>
+					<td class="text-center">
+						<a href="ignite/navEdit/<?=$menu['Id']?>" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-cog"></i></a>
+						<a href="javascript:void(0);" class="btn btn-danger btn-sm btn-circle" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$menu['Id']?>" table="menu_tbl" func="navigation"><i class="fa fa-minus"></i></a>
+					</td>
 				</tr>
 			<?php 
 				$i++;
