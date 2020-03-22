@@ -3,29 +3,33 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite">Change User Setting ( <?=$userData['userName']?> )</h3>
-	<hr/>
 
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-md-6">
+			<div class="card">
 			<?=form_open('ignite/updateUser/'.$userData['Id'])?>
-				<div class="form-group">
-					<?=form_label('Username')?>
-					<?=form_input('username',$userData['userName'],'class="form-control" readonly')?>
+				<div class="card-body">
+					<div class="form-group">
+						<?=form_label('Username')?>
+						<?=form_input('username',$userData['userName'],'class="form-control" readonly')?>
+					</div>
+					<div class="form-group">
+						<?=form_label('Name')?>
+						<?=form_input('name',$userData['name'],'class="form-control" required="required"')?>
+					</div>
+					<div class="form-group">
+						<?=form_label('Password')?>
+						<?=form_password('password','','class="form-control" required="required" placeholder="New Password"')?>
+					</div>
 				</div>
-				<div class="form-group">
-					<?=form_label('Name')?>
-					<?=form_input('name',$userData['name'],'class="form-control" required="required"')?>
-				</div>
-				<div class="form-group">
-					<?=form_label('Password')?>
-					<?=form_password('password','','class="form-control" required="required" placeholder="New Password"')?>
-				</div>
-				<div class="form-group">
-					<a href="ignite/index" class="btn btn-danger">Cancel</a>
-					<?=form_submit('save','Update','class="btn btn-warning"')?>
+				<div class="card-footer">
+					<div class="form-group text-center">
+						<a href="ignite/index" class="btn btn-danger">Cancel</a>
+						<?=form_submit('save','Update','class="btn btn-warning"')?>
+					</div>
 				</div>
 			<?=form_close()?>
+			</div>
 		</div>
 	</div>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<title>MSP</title>
+	<title>CMS</title>
 
 	<base href="<?=base_url()?>" />
 	<link rel="shorcut icon" href="asset/system_img/ignite-logo1.png" />

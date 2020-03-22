@@ -25,7 +25,7 @@
 				<img src="asset/system_img/ignite-logo1.png" class="img-responsive" />
 			</div>
 			<div class="col-md-8 slogam">
-				Ignite Soruce <span class="text-warning small-font">version 1.0.2</span>
+				Ignite Soruce <span class="text-warning small-font">version 3.0.1</span>
 			</div>
 		</div>
 	</header>
@@ -35,7 +35,6 @@
 			<div class="login">
 			<h3 class="text-ignite">User Login</h3>
 			<hr/>
-
 			<!-- Error Message -->
 
 			<?php if($err_msg == true):?>

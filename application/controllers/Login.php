@@ -21,7 +21,7 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$data['err_msg'] = false;
-		$this->load->view('template_front',$data);
+		$this->load->view('layouts/template_front',$data);
 	}
 
 	public function login_state(){
@@ -30,11 +30,17 @@ class Login extends CI_Controller {
 
 		$check = $this->main_model->loginState($name,$psw);
 		if($check == true){
+			$arr = array(
+				'username' => $name,
+				'password' => md5($psw),
+				'name' => $this->session->userdata('name'),
+			);
+			$this->userlog->create_log($arr);
 			redirect('ignite/index');
 		}
 			else{
 				$data['err_msg'] = true;
-				$this->load->view('template_front',$data);
+				$this->load->view('layouts/template_front',$data);
 			}
 	}
 }
