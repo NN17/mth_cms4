@@ -154,7 +154,7 @@ class HeaderUtils
      *                                 is semantically equivalent to $filename. If the filename is already ASCII,
      *                                 it can be omitted, or just copied from $filename
      *
-     * @return string
+     * @return string A string suitable for use as a Content-Disposition field-value
      *
      * @throws \InvalidArgumentException
      *
@@ -176,12 +176,12 @@ class HeaderUtils
         }
 
         // percent characters aren't safe in fallback.
-        if (str_contains($filenameFallback, '%')) {
+        if (false !== strpos($filenameFallback, '%')) {
             throw new \InvalidArgumentException('The filename fallback cannot contain the "%" character.');
         }
 
         // path separators aren't allowed in either.
-        if (str_contains($filename, '/') || str_contains($filename, '\\') || str_contains($filenameFallback, '/') || str_contains($filenameFallback, '\\')) {
+        if (false !== strpos($filename, '/') || false !== strpos($filename, '\\') || false !== strpos($filenameFallback, '/') || false !== strpos($filenameFallback, '\\')) {
             throw new \InvalidArgumentException('The filename and the fallback cannot contain the "/" and "\\" characters.');
         }
 
