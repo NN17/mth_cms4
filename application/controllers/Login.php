@@ -36,7 +36,7 @@ class Login extends CI_Controller {
 				'name' => $this->session->userdata('name'),
 			);
 			$this->userlog->create_log($arr);
-			redirect('ignite/index');
+			redirect('home');
 		}
 			else{
 				$data['err_msg'] = true;

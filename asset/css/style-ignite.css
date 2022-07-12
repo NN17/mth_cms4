@@ -112,7 +112,7 @@ header img{
 }
 
 .navbar-nav > li > a:hover{
-	background: #eee;
+	background: #dc3545;
 }
 
 .icon-bar{
@@ -392,7 +392,7 @@ div.img-name{
 }
 
 .beforeContent2-wrapper{
-	background: #1588bc;
+	background: #fff;
 }
 
 .beforeContent2-wrapper a{
@@ -644,4 +644,8 @@ div.divider{
 	border-bottom: 1px solid #dad9d9;
     width: 100%;
     margin: 10px 0px;
+}
+
+.partner img{
+	width: 100% !important;
 }

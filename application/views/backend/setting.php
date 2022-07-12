@@ -3,8 +3,6 @@
 ?>
 
 	<div class="backend">
-		<h3 class="text-ignite">Setting</h3>
-		<hr/>
 
 		<div class="row">
 			<div class="col-md-3">

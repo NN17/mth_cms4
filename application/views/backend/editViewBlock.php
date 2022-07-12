@@ -3,18 +3,17 @@
 ?>
 
 <div class="backend">
-	<h3 class="text-ignite">Edit View Content</h3>
-	<hr/>
+	
 
 	<div class="row">
 		<?=form_open_multipart('ignite/updateViewBlock/'.$contentData['Id'])?>
-			<div class="form-group col-md-6">
+			<div class="form-group col">
 				<?=form_label('Title')?>
 				<?=form_input('title',$contentData['title'],'class="form-control" placeholder="Title for Content" required="required"')?>
 			</div>
-			<div class="form-group col-md-8">
+			<div class="form-group col">
 				<?=form_label('Body Text')?>
-				<?=$this->ckeditor->editor('text',$contentData['text'],'')?>
+				<textarea name='text' id='editor'></textarea>
 			</div>
 			
 			<div class="form-group col-md-8">

@@ -10,17 +10,17 @@
           Contents
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          	<a class="dropdown-item" href="ignite/contentType">Content Type</a>
+          	<a class="dropdown-item" href="content-type">Content Type</a>
           	<div class="dropdown-divider"></div>
         	<?php $contentTypes = $this->main_model->get_data('content_type_tbl');?>
         	<?php 
         		foreach($contentTypes as $contentType):
         	?>
-        		<a class="dropdown-item" href="ignite/addContentByType/<?=$contentType['Id']?>"><?=$contentType['name']?></a>
+        		<a class="dropdown-item" href="add-content-by-type/<?=$contentType['Id']?>"><?=$contentType['name']?></a>
         	<?php 
         		endforeach;
         	?>
-        	<a class="dropdown-item" href="ignite/allContent">All Contents</a>
+        	<a class="dropdown-item" href="all-contents">All Contents</a>
         </div>
       </li>
       <?php if($this->session->userdata['level'] != 4):?>	
@@ -29,24 +29,24 @@
 	          Blocks
 	        </a>
 	  		<div class="dropdown-menu" aria-labelledby="block">
-	        	<a class="dropdown-item" href="ignite/newBlock">New Block</a>
-	        	<a class="dropdown-item" href="ignite/blockList">Block List</a>
+	        	<a class="dropdown-item" href="new-block">New Block</a>
+	        	<a class="dropdown-item" href="block-list">Block List</a>
 	     	</div>
 	  	</li>
 	    <li class="nav-item">
-	    	<a class="nav-link" href="ignite/navigation">Navigation</a>
+	    	<a class="nav-link" href="navigation">Navigation</a>
 	    </li>
 	    <li class="nav-item">
-	    	<a class="nav-link" href="ignite/slogam">Logo & Slogam</a>
+	    	<a class="nav-link" href="logo-slogam">Logo & Slogam</a>
 	    </li>
 	    <li class="nav-item">
-	    	<a class="nav-link" href="ignite/carousel">Carousels</a>
+	    	<a class="nav-link" href="carousel">Carousels</a>
 	    </li>
 	    <li class="nav-item">
-	    	<a class="nav-link" href="ignite/layout">Layout</a>
+	    	<a class="nav-link" href="layout">Layout</a>
 	    </li>
 	    <li class="nav-item">
-	    	<a class="nav-link" href="ignite/setting">Setting</a>
+	    	<a class="nav-link" href="setting">Setting</a>
 	    </li>
 	    <?php endif;?>
     </ul>

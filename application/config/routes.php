@@ -52,3 +52,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'ignite';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+$route['home'] = 'ignite/index';
+
+$route['page/:num'] = 'ignite/page';
+
+$route['content-type'] = 'ignite/contentType';
+$route['add-content-by-type/(:num)'] = 'ignite/addContentByType';
+$route['all-contents'] = 'ignite/allContent';
+
+$route['new-block'] = 'ignite/newBlock';
+$route['block-list'] = 'ignite/blockList';
+
+$route['navigation'] = 'ignite/navigation';
+
+$route['logo-slogam'] = 'ignite/slogam';
+
+$route['carousel'] = 'ignite/carousel';
+
+$route['layout'] = 'ignite/layout';
+
+$route['setting'] = 'ignite/setting';

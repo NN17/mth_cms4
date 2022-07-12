@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CMS</title>
 
 	<base href="<?=base_url()?>" />
@@ -14,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="asset/css/style.css" />
 	<link rel="stylesheet" type="text/css" href="asset/css/jquery.datetimepicker.css" />
 	<link rel="stylesheet" type="text/css" href="asset/css/owl.carousel.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/mth.css" />
 	<!--<link rel="stylesheet" type="text/css" href="css/owl.theme.css" />
 	<link rel="stylesheet" type="text/css" href="css/owl.transitions.css" />-->
 
@@ -30,6 +34,14 @@
 	<div class="clearfix"></div>
 	
 	<div class="main-wrapper <?=$this->session->userdata('loginState') == true?'margin':''?>">
+
+	<!-- Main Banner -->
+
+	<header>
+		<div class="container-fluid">
+			<img src="asset/system_img/mth-logo.png" class="d-block mx-auto">
+		</div>
+	</header>
 	<!-- Navigation Start -->
 
 	<div class="nav-wrapper">
@@ -105,26 +117,28 @@
 
 	<!-- Body Start -->
 
-	<div class="container">
-		
-		<div class="row">
-			<!-- Sidebar Left -->
-			<?php if(isset($sidebar_left)):?>
-			<div class="col-md-3 sidebar-left">
-				<?php $this->load->view($sidebar_left)?>
-			</div>
-			<?php endif;?>
-			<!-- Content -->
-			<div class="<?php if(isset($sidebar_left) && isset($sidebar_right)){echo 'col-md-6';} elseif (isset($sidebar_left) || isset($sidebar_right)){echo 'col-md-9';} else {echo 'col-md-12';}?> main-content">
-				<?php $this->load->view($content);?>
-			</div>
+	<div class="content-wrap">
+		<div class="container">
+			
+			<div class="row">
+				<!-- Sidebar Left -->
+				<?php if(isset($sidebar_left)):?>
+				<div class="col-md-3 sidebar-left">
+					<?php $this->load->view($sidebar_left)?>
+				</div>
+				<?php endif;?>
+				<!-- Content -->
+				<div class="<?php if(isset($sidebar_left) && isset($sidebar_right)){echo 'col-md-6';} elseif (isset($sidebar_left) || isset($sidebar_right)){echo 'col-md-9';} else {echo 'col-md-12';}?> main-content">
+					<?php $this->load->view($content);?>
+				</div>
 
-			<!-- Sidebar Right -->
-			<?php if(isset($sidebar_right)):?>
-			<div class="col-md-3 sidebar-right">
-				<?php $this->load->view($sidebar_right)?>
+				<!-- Sidebar Right -->
+				<?php if(isset($sidebar_right)):?>
+				<div class="col-md-3 sidebar-right">
+					<?php $this->load->view($sidebar_right)?>
+				</div>
+				<?php endif;?>
 			</div>
-			<?php endif;?>
 		</div>
 	</div>
 		<!-- ************** After Content *************** -->
@@ -212,12 +226,13 @@
 	<div class="ignite-footer text-center text-ignite small-padding">Designed & Developed by Ignitesource.</div>
 	</div>
 
-	<script type="text/javascript" src="asset/js/jquery.js"></script>
+	<script type="text/javascript" src="asset/js/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="asset/js/jquery-ui.js"></script>
 	<script type="text/javascript" src="asset/js/jquery.datetimepicker.js"></script>
 	<script type="text/javascript" src="asset/js/devrama.js"></script>
 	<script type="text/javascript" src="asset/js/owl.carousel.js"></script>
 	<script type="text/javascript" src="asset/js/myscript.js"></script>
+	<script type="text/javascript" src="asset/js/mth.js"></script>
 </body>
 </html>

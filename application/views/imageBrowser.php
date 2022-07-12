@@ -3,17 +3,17 @@
 <head>
 	<title>File Browser</title>
 	<base href="<?=base_url()?>" />
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css" href="css/style-ignite.css" />
-	<link rel="stylesheet" type="text/css" href="css/layout.css" />
-	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/style-ignite.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/layout.css" />
+	<link rel="stylesheet" type="text/css" href="asset/css/font-awesome.css" />
 
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/myscript.js"></script>
+	<script type="text/javascript" src="asset/js/jquery.js"></script>
+	<script type="text/javascript" src="asset/js/myscript.js"></script>
 </head>
 <body>
 	<div class="browser-head">
-		<img src="system_img/logo.png" />
+		<img src="asset/system_img/ignite-logo.png" />
 		<span id="fileHeader">Ignite Source File Uploader</span>
 	</div>
 	<div class="browser-body mid-padding">

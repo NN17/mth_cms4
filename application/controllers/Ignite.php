@@ -38,7 +38,10 @@ class Ignite extends CI_Controller {
 			
 		}
 		$data['page'] = 1;
-		$data['content'] = 'userfiles/home';
+		if(empty($data['content'])){
+			$data['content'] = 'userfiles/home';
+		}
+		
 		$this->load->view('layouts/template',$data);
 
 
@@ -53,7 +56,7 @@ class Ignite extends CI_Controller {
 		$data['link'] = 'ignite/layout';
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/layout';
-		$this->load->view('template_back',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	// ---------------- Navigation & Link Structure -----------------
@@ -394,17 +397,18 @@ class Ignite extends CI_Controller {
 		// loading Ckeditor ..
 		$this->load->library('CKEditor');
 		
-		$this->ckeditor->basePath = base_url().'asset/ckeditor/';
-		$this->ckeditor->config['toolbar'] =  'Full';
-		$this->ckeditor->config['language'] = 'en';
-		$this->ckeditor->config['font_style'] = 'myanmar';
-		$this->ckeditor->config['width'] = '100%';
-		$this->ckeditor->config['height'] = '300px';
-		$this->ckeditor->config['filebrowserImageBrowseUrl'] = base_url().'ignite/imageBrowse';
+		// $this->ckeditor->basePath = base_url().'asset/ckeditor/';
+		// $this->ckeditor->config['toolbar'] =  'Full';
+		// $this->ckeditor->config['language'] = 'en';
+		// $this->ckeditor->config['font_style'] = 'myanmar';
+		// $this->ckeditor->config['width'] = '100%';
+		// $this->ckeditor->config['height'] = '300px';
+		// $this->ckeditor->config['filebrowserImageBrowseUrl'] = base_url().'ignite/imageBrowse';
 
 		$data['contentData'] = $this->main_model->get_limit_data('content_tbl','Id',$contentId)->row_array();
 
 		$data['content'] = 'backend/editViewBlock';
+		$data['title'] = 'Edit View Content';
 		$this->load->view('layouts/template_back',$data);
 	}
 
@@ -475,7 +479,7 @@ class Ignite extends CI_Controller {
 
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$data['carouselId'])->row_array();
 		$data['content'] = 'backend/carouselPreview';
-		$this->load->view('template_back',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function blockList(){
@@ -831,7 +835,7 @@ class Ignite extends CI_Controller {
 
 	public function page(){
 
-		$id = $this->uri->segment(3);
+		$id = $this->uri->segment(2);
 
 		// ************** Pagination Start **************
 		
@@ -872,7 +876,7 @@ class Ignite extends CI_Controller {
 		$data['linkStructure'] = $this->main_model->get_limit_data('link_structure_tbl','Id',$id)->row_array();
 
 		if ($id == 1){
-			redirect('ignite/index');
+			redirect('home');
 		}
 			else{
 				$data['contentDatas'] = $this->main_model->get_limit_datas_pagination('content_tbl','link',$id,'published',true,'title',$start,5)->result_array();
@@ -889,7 +893,7 @@ class Ignite extends CI_Controller {
 				$data['content'] = 'backend/content';
 			}
 		
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template',$data);
 	}
 
 	// ----------------------------------------------------------------
@@ -1233,8 +1237,9 @@ class Ignite extends CI_Controller {
 	// ------------------------ Function Setting ---------------------------
 
 	public function setting(){
+		$data['title'] = 'Setting';
 		$data['content'] = 'backend/setting';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template_back',$data);
 	}
 
 	public function newUser(){
