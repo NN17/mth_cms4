@@ -397,13 +397,13 @@ class Ignite extends CI_Controller {
 		// loading Ckeditor ..
 		$this->load->library('CKEditor');
 		
-		// $this->ckeditor->basePath = base_url().'asset/ckeditor/';
-		// $this->ckeditor->config['toolbar'] =  'Full';
-		// $this->ckeditor->config['language'] = 'en';
-		// $this->ckeditor->config['font_style'] = 'myanmar';
-		// $this->ckeditor->config['width'] = '100%';
-		// $this->ckeditor->config['height'] = '300px';
-		// $this->ckeditor->config['filebrowserImageBrowseUrl'] = base_url().'ignite/imageBrowse';
+		$this->ckeditor->basePath = base_url().'asset/ckeditor/';
+		$this->ckeditor->config['toolbar'] =  'Full';
+		$this->ckeditor->config['language'] = 'en';
+		$this->ckeditor->config['font_style'] = 'myanmar';
+		$this->ckeditor->config['width'] = '100%';
+		$this->ckeditor->config['height'] = '300px';
+		$this->ckeditor->config['filebrowserImageBrowseUrl'] = base_url().'ignite/imageBrowse';
 
 		$data['contentData'] = $this->main_model->get_limit_data('content_tbl','Id',$contentId)->row_array();
 
@@ -817,15 +817,18 @@ class Ignite extends CI_Controller {
 	}
 
 	public function upload_img(){
-		$file = $this->main_model->upload_file_img('userfile','upload_img');
+		$file = $this->main_model->upload_file_img('userfile','asset/upload_img');
 		if($file != false){
 			$insert = array(
 				'name' => $file,
-				'path' => 'upload_img/'.$file				
+				'path' => 'asset/upload_img/'.$file				
 			);
 			$this->db->insert('upload_img_tbl',$insert);
 			redirect('ignite/imageBrowse');
 		}
+			else {
+				echo $file;
+			}
 		
 	}
 

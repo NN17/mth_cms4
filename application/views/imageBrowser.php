@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="asset/css/font-awesome.css" />
 
 	<script type="text/javascript" src="asset/js/jquery.js"></script>
-	<script type="text/javascript" src="asset/js/myscript.js"></script>
+	<script type="text/javascript" src="asset/js/ignite.js"></script>
 </head>
 <body>
 	<div class="browser-head">

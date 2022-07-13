@@ -550,7 +550,7 @@
 			}
 				else
 				{
-					return false;
+					return $this->upload->display_errors();
 				}
 
 		}

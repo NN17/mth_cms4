@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-group col">
 				<?=form_label('Body Text')?>
-				<textarea name='text' id='editor'><?=$contentData['text']?></textarea>
+				<?=$this->ckeditor->editor('text',$contentData['text'],'')?>
 			</div>
 			
 			<div class="form-group col-md-8">

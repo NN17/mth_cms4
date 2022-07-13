@@ -135,8 +135,7 @@
 <!-- Bootstrap 4 -->
 <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Ck eidtor / finder js -->
-<script src="asset/ckeditor5/ckeditor.js"></script>
-<script src="asset/ckfinder/ckfinder.js"></script>
+<script src="asset/ckeditor/ckeditor.js"></script>
 <!-- ChartJS -->
 <script src="adminlte/plugins/chart.js/Chart.min.js"></script>
 <!-- Sparkline -->
@@ -159,20 +158,7 @@
 <script src="adminlte/js/adminlte.js"></script>
 
 <script type="text/javascript" src="asset/js/ignite.js"></script>
-<script>
-   
 
-ClassicEditor
-    .create( document.querySelector( '#editor' ), {
-    
-        ckfinder: {
-            uploadUrl: './asset/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json',
-        },
-        
-    } )
-    .then(  )
-    .catch(  );
-</script>
 </body>
 </html>
 <?php else: ?>
