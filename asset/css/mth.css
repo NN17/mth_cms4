@@ -40,6 +40,19 @@ footer {
 	text-align: right;
 }
 
+.dropdown-menu {
+	background: #333333a1 !important;
+	color: #fff;
+}
+
+.dropdown-item {
+	color:  #fff !important;
+}
+
+.dropdown-item:hover {
+	background: #DC3545;
+}
+
 @media only screen and (max-width: 700px) {
   .enterprise-logo {
   	width: 75px;

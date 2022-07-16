@@ -193,7 +193,7 @@ $(document).ready(function(){
 // Base Url Function
 
 function base_url(){
-	return 'http://localhost/cms_v4/';
+	return "https://" + location.hostname + "/";
 }
 
 

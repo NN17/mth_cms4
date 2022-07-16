@@ -41,7 +41,7 @@
 		            	<?php $imgs = $this->main_model->get_limit_data('carousel_img_tbl','carouselId',$carousel['Id'])->result_array();?>
 
 		            	<?php foreach($imgs as $img):?>
-		            		<div class="col-md-4 carousel-preview mid-margin">
+		            		<div class="col-md-3 carousel-preview py-3">
 		            			<img class="img-fluid center-block" src="<?=$img['path']?>" />
 
 		            			<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="img_edit"><i class="fa fa-chevron-circle-down text-ignite"></i></a>

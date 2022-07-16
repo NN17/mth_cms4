@@ -638,7 +638,7 @@ class Ignite extends CI_Controller {
 		$data['link'] = 'ignite/addCarouselImg';
 		$carouselId = $this->uri->segment(3);
 
-		$file = $this->main_model->upload_img('carouselImg','upload_img');
+		$file = $this->main_model->upload_img('carouselImg','asset/upload_img');
 		if($file != false){
 			$insert = array(
 				'path' => $file,

@@ -202,7 +202,7 @@
 	<!-- Footer Start -->
 
 	<div class="footer-first">
-		<div class="container">
+		<div class="container py-5">
 			<div class="row">
 				<?php if(isset($footer_first_left)):?>
 				<div class="<?php if(isset($footer_first_center) && isset($footer_first_right)){echo 'col-md-4';} elseif(isset($footer_first_center) || isset($footer_first_right)){echo 'col-md-6';} else{echo 'col-md-12';}?>">
