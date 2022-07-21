@@ -1,5 +1,5 @@
-<div class="py-3 my-3">
-	<?php $blockData = $this->main_model->get_limit_data('content_tbl','Id',$content_relatedId)->row_array();?>
+<div class="py-5 my-5">
+	<?php $blockData = $this->main_model->get_limit_data('content_tbl','Id',$before_content_5_relatedId)->row_array();?>
 
 	<h3 class="text-center"><?=$blockData['title']?></h3>
 

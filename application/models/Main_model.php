@@ -393,7 +393,7 @@
 
 		// *********** Get datas with two conditions *************
 
-		function get_limit_datas($tablename,$var1,$var2,$var3,$var4,$field,$type)
+		function get_limit_datas($tablename,$var1,$var2,$var3,$var4,$field = 'Id',$type ='DESC')
 		{
 			$this->db->where($var1,$var2);
 			$this->db->where($var3,$var4);

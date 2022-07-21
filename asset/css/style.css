@@ -99,9 +99,13 @@
 }
 
 body{
-	font-family: 'LatoLatin';
-	font-size: 15px !important;
+	font-family: 'gothic';
+	font-size: 16px !important;
 	color: #333;
+}
+
+.cke-contents textarea {
+	min-height: 150px !important;
 }
 
 hr{

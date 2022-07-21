@@ -846,7 +846,7 @@ class Ignite extends CI_Controller {
 
 		$this->load->library('pagination');
 
-		$config['base_url'] = base_url().'ignite/page/'.$id.'/';
+		$config['base_url'] = base_url().'page/'.$id.'/';
 		$config['total_rows'] = $row;
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 4;
@@ -993,7 +993,7 @@ class Ignite extends CI_Controller {
 	public function addContentByType(){
 		$data['title'] = 'Add Content By Type';
 		$data['link'] = 'ignite/addContentByType';
-		$contentTypeId = $this->uri->segment(3);
+		$contentTypeId = $this->uri->segment(2);
 
 		// loading Ckeditor ..
 		$this->load->library('CKEditor');
@@ -1059,7 +1059,7 @@ class Ignite extends CI_Controller {
 			);
 
 		$this->db->insert('content_tbl',$insert);
-		redirect('ignite/page/'.$link);
+		redirect('page/'.$link);
 	}
 
 	public function allContent(){
@@ -1109,8 +1109,8 @@ class Ignite extends CI_Controller {
 	public function editContent(){
 		$data['title'] = 'Edit Content';
 		$data['link'] = 'ignite/editContent';
-		$contentId = $this->uri->segment(3);
-		$contentTypeId = $this->uri->segment(4);
+		$contentId = $this->uri->segment(2);
+		$contentTypeId = $this->uri->segment(3);
 
 		// loading Ckeditor ..
 		$this->load->library('CKEditor');
@@ -1174,7 +1174,7 @@ class Ignite extends CI_Controller {
 
 		$this->db->where('Id',$contentId);
 		$this->db->update('content_tbl',$update);
-		redirect('ignite/page/'.$link);
+		redirect('page/'.$link);
 	}
 
 	public function contentView(){
@@ -1194,7 +1194,7 @@ class Ignite extends CI_Controller {
 		}
 		$data['page'] = $data['contentData']['link'];
 		$data['content'] = 'backend/contentView';
-		$this->load->view('template',$data);
+		$this->load->view('layouts/template',$data);
 	}
 
 	// ----------------------------------------------------------------
@@ -1315,6 +1315,21 @@ class Ignite extends CI_Controller {
 		$data['users'] = $this->main_model->get_data('users_tbl');
 		$data['content'] = 'backend/allUsers';
 		$this->load->view('template',$data);
+	}
+
+	public function updateContent () {
+		$content = $this->db->get('content_tbl')->result();
+
+		foreach ($content as $row) {
+			$update = str_replace('http://localhost/cms_v4', 'https://www.beta.myanmarthiha.com', $row->text);
+			$arr = array(
+				'text' => $update
+			);
+
+			$this->db->where('Id', $row->Id);
+			$this->db->update('content_tbl', $arr);
+		}
+
 	}
 
 	// ---------------------------------------------------------------------

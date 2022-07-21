@@ -60,6 +60,7 @@ $route['page/:num'] = 'ignite/page';
 $route['content-type'] = 'ignite/contentType';
 $route['add-content-by-type/(:num)'] = 'ignite/addContentByType';
 $route['all-contents'] = 'ignite/allContent';
+$route['content-edit/:num/:num'] = 'ignite/editContent';
 
 $route['new-block'] = 'ignite/newBlock';
 $route['block-list'] = 'ignite/blockList';

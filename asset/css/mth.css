@@ -17,7 +17,7 @@ nav .navbar-nav {
 }
 
 .content-wrap {
-	background: #eee;
+	background: #fff;
 }
 
 .enterprise-logo {
@@ -51,6 +51,10 @@ footer {
 
 .dropdown-item:hover {
 	background: #DC3545;
+}
+
+.content-data {
+	background: #f0f5f9;
 }
 
 @media only screen and (max-width: 700px) {

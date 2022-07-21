@@ -196,6 +196,10 @@ function base_url(){
 	return "https://" + location.hostname + "/";
 }
 
+// function base_url(){
+// 	return "http://" + location.hostname + "/cms_v4/";
+// }
+
 
 // **************** Image Preview Function ****************
 

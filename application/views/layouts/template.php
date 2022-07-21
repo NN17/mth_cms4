@@ -88,7 +88,7 @@
 	<?php endif;?>
 
 	<?php if(isset($before_content_5) || isset($before_content_6) || isset($before_content_7)):?>
-	<div class="beforeContent2-wrapper">
+	<div class="beforeContent567-wrapper">
 		<div class="container">
 			<div class="row">
 				<!-- After Content 1 -->

@@ -6,9 +6,9 @@
 	<hr/>
 	<h4 class="text-center text-danger"><?=@$errors?></h4>
 
-	<div class="row">
+	<div class="">
 	<?=form_open('ignite/updateBlock/'.$block['Id'])?>
-		<div class="col-md-6">
+		<div class="col-6">
 
 			<div class="form-group">
 				<?=form_label('Block Title')?> <i class="fa fa-spinner fa-spin text-ignite" aria-hidden="true" id="spin" ></i>

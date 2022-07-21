@@ -259,8 +259,12 @@ hr{
 }
 
 textarea{
-	height: 150px !important;
+	min-height: 150px;
 	resize: none;
+}
+
+.cke-contents textarea {
+	height: 300px !important;
 }
 
 table th{
@@ -402,6 +406,10 @@ div.img-name{
 
 .beforeContent2-wrapper a:hover{
 	color: #fff;
+}
+
+.beforeContent567-wrapper {
+	background: #f0f5f9;
 }
 
 .edit{
