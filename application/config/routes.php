@@ -55,7 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'ignite/index';
 
-$route['page/:num'] = 'ignite/page';
+$route['page/(:num)/(:any)'] = 'ignite/page';
 
 $route['content-type'] = 'ignite/contentType';
 $route['add-content-by-type/(:num)'] = 'ignite/addContentByType';
@@ -66,10 +66,15 @@ $route['new-block'] = 'ignite/newBlock';
 $route['block-list'] = 'ignite/blockList';
 
 $route['navigation'] = 'ignite/navigation';
+$route['edit-menu/:num'] = 'ignite/navEdit';
+$route['create-link/:num'] = 'ignite/newLink';
+$route['block-edit/:num'] = 'ignite/editBlock';
 
 $route['logo-slogam'] = 'ignite/slogam';
 
 $route['carousel'] = 'ignite/carousel';
+$route['preview-carousel/:num'] = 'ignite/previewCarousel';
+$route['carousel-edit/:num'] = 'ignite/editCarousel';
 
 $route['layout'] = 'ignite/layout';
 

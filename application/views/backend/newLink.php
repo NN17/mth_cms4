@@ -52,7 +52,7 @@
 				</div>
 				<div class="card-footer">
 					<div class="form-group">
-						<a href="ignite/navigation" class="btn btn-danger">Cancel</a>
+						<a href="navigation" class="btn btn-danger">Cancel</a>
 						<?=form_submit('save','Save','class="btn btn-warning"')?>
 					</div>
 				</div>
@@ -73,15 +73,15 @@
 					<?php endif;?>	
 					<strong class="text-primary">
 						<?=$mainMenu['name'];?></strong> &nbsp;&nbsp;
-						<a href="ignite/editLink/<?=$mainMenu['Id']?>"><i class="fa fa-pencil-square text-warning" ></i></a> | 
-						<a href="#" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$mainMenu['Id']?>" table="link_structure_tbl" func="newLink-<?=$mainMenu['menuId']?>"><i class="fa fa-remove text-danger"></i></a>
+						<a href="ignite/editLink/<?=$mainMenu['Id']?>"><i class="fa fa-edit text-warning" ></i></a> | 
+						<a href="#" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$mainMenu['Id']?>" table="link_structure_tbl" func="newLink-<?=$mainMenu['menuId']?>"><i class="fa fa-trash text-danger"></i></a>
 					
 					<?php if(!empty($subMenu)):?>
 						<?php foreach($subMenu as $sub):?>
 							<li>
 								<span class="text-info"><i class="fa fa-caret-right"></i> <?=$sub['name']?></span> &nbsp;&nbsp;
-								<a href="ignite/editLink/<?=$sub['Id']?>"><i class="fa fa-pencil-square text-warning"></i></a> | 
-								<a href="#" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$sub['Id']?>" table="link_structure_tbl" func="newLink-<?=$sub['menuId']?>"><i class="fa fa-remove text-danger"></i></a>
+								<a href="ignite/editLink/<?=$sub['Id']?>"><i class="fa fa-edit text-warning"></i></a> | 
+								<a href="#" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$sub['Id']?>" table="link_structure_tbl" func="newLink-<?=$sub['menuId']?>"><i class="fa fa-trash text-danger"></i></a>
 							</li>
 						<?php endforeach;?>
 					<?php endif;?>

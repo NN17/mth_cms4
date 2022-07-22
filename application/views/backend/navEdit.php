@@ -32,7 +32,7 @@
 				</div>
 				<div class="card-footer text-center">
 					<div class="form-group">
-						<a href="ignite/navigation" class="btn btn-danger">Cancel</a>
+						<a href="navigation" class="btn btn-danger">Cancel</a>
 						<?=form_submit('Update','Update','class="btn btn-warning"')?>
 					</div>
 				</div>

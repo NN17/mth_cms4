@@ -20,10 +20,10 @@
 			?>
 				<tr>
 					<td class="text-right"><?=$i?></td>
-					<td><a href="ignite/newLink/<?=$menu['Id']?>" title="To create link structure"><?=$menu['name']?></a></td>
+					<td><a href="create-link/<?=$menu['Id']?>" title="To create link structure"><?=$menu['name']?></a></td>
 					<td><?=$menu['note']?></td>
 					<td class="text-center">
-						<a href="ignite/navEdit/<?=$menu['Id']?>" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-cog"></i></a>
+						<a href="edit-menu/<?=$menu['Id']?>" class="btn btn-warning btn-sm btn-circle"><i class="fa fa-cog"></i></a>
 						<a href="javascript:void(0);" class="btn btn-danger btn-sm btn-circle" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$menu['Id']?>" table="menu_tbl" func="navigation"><i class="fa fa-minus"></i></a>
 					</td>
 				</tr>

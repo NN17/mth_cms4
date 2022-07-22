@@ -23,11 +23,11 @@
 			?>
 				<tr>
 					<td class="text-right"><?=$i?></td>
-					<td><?=anchor('ignite/previewCarousel/'.$carousel['Id'],$carousel['name'],'title="Preview"')?></td>
+					<td><?=anchor('preview-carousel/'.$carousel['Id'],$carousel['name'],'title="Preview"')?></td>
 					<td><?=$carousel['note']?></td>
 					<td><?=carouselType($carousel['type'])?></td>
 					<td class="text-center">
-						<a href="ignite/editCarousel/<?=$carousel['Id']?>" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
+						<a href="carousel-edit/<?=$carousel['Id']?>" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
 						<a href="javascript:void(0);" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></a>
 					</td>
 				</tr>

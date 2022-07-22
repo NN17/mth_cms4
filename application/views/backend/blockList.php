@@ -32,7 +32,7 @@
 					<td><?=$this->main_model->link($block['relatedLink'])?></td>
 					<td><?=$this->main_model->layout($block['layout'])?></td>
 					<td class="text-center">
-						<a href="ignite/editBlock/<?=$block['Id']?>" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
+						<a href="block-edit/<?=$block['Id']?>" class="btn btn-warning btn-sm"><i class="fa fa-cog"></i></a>
 						<a href="javascript:void(0);" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#Modal" id="blockDelete" value="<?=$block['Id']?>" file="<?=$block['file']?>"><i class="fa fa-times"></i></a>
 					</td>
 				</tr>

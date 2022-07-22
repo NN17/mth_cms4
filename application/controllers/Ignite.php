@@ -99,7 +99,7 @@ class Ignite extends CI_Controller {
 	public function navEdit(){
 		$data['title'] = 'Edit Navigation';
 		$data['link'] = 'ignite/navEdit';
-		$id = $this->uri->segment(3);
+		$id = $this->uri->segment(2);
 
 		$data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/navEdit';
@@ -121,13 +121,13 @@ class Ignite extends CI_Controller {
 			);
 		$this->db->where('Id',$id);
 		$this->db->update('menu_tbl',$update);
-		redirect('ignite/navigation');
+		redirect('navigation');
 	}
 
 	public function newLink(){
 		$data['title'] = 'Create New Link';
 		$data['link'] = 'ignite/newLink';
-		$menuId = $this->uri->segment(3);
+		$menuId = $this->uri->segment(2);
 		$data['navigation'] = $this->main_model->get_limit_data('menu_tbl','Id',$menuId)->row_array();
 		// $data['menu'] = 'backend/menu';
 		$data['content'] = 'backend/newLink';
@@ -475,7 +475,7 @@ class Ignite extends CI_Controller {
 	public function previewCarousel(){
 		$data['title'] = 'Carousel Preview';
 		$data['link'] = 'ignite/previewCarousel';
-		$data['carouselId'] = $this->uri->segment(3);
+		$data['carouselId'] = $this->uri->segment(2);
 
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$data['carouselId'])->row_array();
 		$data['content'] = 'backend/carouselPreview';
@@ -530,7 +530,7 @@ class Ignite extends CI_Controller {
 	public function editBlock(){
 		$data['title'] = 'Edit Block';
 		$data['link'] = 'ignite/editBlock';
-		$blockId = $this->uri->segment(3);
+		$blockId = $this->uri->segment(2);
 
 		$data['block'] = $this->main_model->get_limit_data('blocks_tbl','Id',$blockId)->row_array();
 		$data['layouts'] = $this->main_model->get_data('layout_tbl');
@@ -598,7 +598,7 @@ class Ignite extends CI_Controller {
 	public function editCarousel(){
 		$data['title'] = 'Edit Carousel';
 		$data['link'] = 'ignite/editCarousel';
-		$carouselId = $this->uri->segment(3);
+		$carouselId = $this->uri->segment(2);
 
 		$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$carouselId)->row_array();
 		$data['content'] = 'backend/editCarousel';
@@ -619,7 +619,7 @@ class Ignite extends CI_Controller {
 			);
 		$this->db->where('Id',$carouselId);
 		$this->db->update('carousel_tbl',$update);
-		redirect('ignite/previewCarousel/'.$carouselId);
+		redirect('preview-carousel/'.$carouselId);
 	}
 
 	public function newCarouselImg(){
@@ -846,10 +846,10 @@ class Ignite extends CI_Controller {
 
 		$this->load->library('pagination');
 
-		$config['base_url'] = base_url().'page/'.$id.'/';
+		$config['base_url'] = base_url().'page/'.$id.'/~';
 		$config['total_rows'] = $row;
 		$config['per_page'] = 5;
-		$config['uri_segment'] = 4;
+		$config['uri_segment'] = 3;
 
 		$config['cur_tag_open'] = '<li class="active">';
 		$config['cur_tag_close'] = '</li>';
@@ -874,7 +874,7 @@ class Ignite extends CI_Controller {
 
 		$this->pagination->initialize($config);
 
-		$start = ($this->uri->segment(4)) ? $this->uri->segment(4) : 0;
+		$start = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
 		$data['linkStructure'] = $this->main_model->get_limit_data('link_structure_tbl','Id',$id)->row_array();
 

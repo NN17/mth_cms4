@@ -71,7 +71,7 @@
 				</select>
 			</div>
 			<div class="form-group">
-				<?=anchor('ignite/blockList','Cancel','class="btn btn-danger"')?>
+				<?=anchor('block-list','Cancel','class="btn btn-danger"')?>
 				<?=form_submit('save','Update Block','class="btn btn-warning"')?>
 			</div>
 		</div>
