@@ -852,7 +852,7 @@ class Ignite extends CI_Controller {
 
 		$this->load->library('pagination');
 
-		$config['base_url'] = 
+		$config['base_url'] = $url;
 		$config['total_rows'] = $row;
 		$config['per_page'] = 5;
 		$config['uri_segment'] = 3;
