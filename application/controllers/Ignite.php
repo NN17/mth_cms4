@@ -839,11 +839,17 @@ class Ignite extends CI_Controller {
 	public function page(){
 
 		$id = $this->uri->segment(2);
-		if ($this->uri->segment(3) == '') {
-			$url = base_url().'page/'.$id.'/~';
+		if (!empty($this->uri->segment(3)) && $this->uri->segment(3) != '~') {
+			if(($this->uri->segment(3) - 5) > 0) {
+				$url = base_url().'page/'.$id.'/';
+			}
+				else{
+
+					$url = base_url().'page/'.$id.'/~';
+				}
 		}
 			else {
-				$url = base_url().'page/'.$id.'/';
+					$url = base_url().'page/'.$id.'/';
 			}
 
 		// ************** Pagination Start **************
