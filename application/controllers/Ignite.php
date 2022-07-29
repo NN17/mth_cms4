@@ -1071,7 +1071,7 @@ class Ignite extends CI_Controller {
 			);
 
 		$this->db->insert('content_tbl',$insert);
-		redirect('page/'.$link);
+		redirect('page/'.$link.'/~');
 	}
 
 	public function allContent(){
