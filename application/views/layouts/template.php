@@ -4,10 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>CMS</title>
+	<title>MTH</title>
 
 	<base href="<?=base_url()?>" />
-	<link rel="shorcut icon" href="asset/system_img/ignite-logo1.png" />
+	<link rel="shorcut icon" href="asset/system_img/mth-logo.png" />
 	<link rel="stylesheet" type="text/css" href="bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="asset/css/layout.css" />
 	<link rel="stylesheet" type="text/css" href="asset/css/flaticon.css" />

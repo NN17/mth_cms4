@@ -7,21 +7,21 @@
 	<div class="row justify-content-center">
 		<div class="col-md-6">
 			<div class="card">
-				<?=form_open('ignite/addContentType')?>
+				<?=form_open('update-content-type/'.$contentType->Id)?>
 				<div class="card-body">
 					<div class="form-group">
 						<?=form_label('Name')?>
-						<?=form_input('name','','class="form-control" placeholder="Name of Content Type" required="required"')?>
+						<?=form_input('name',$contentType->name,'class="form-control" placeholder="Name of Content Type" required="required"')?>
 					</div>
 					<div class="form-group">
 						<?=form_label('Note')?>
-						<?=form_textarea('note','','class="form-control" placeholder="Short Note for Content"')?>
+						<?=form_textarea('note',$contentType->note,'class="form-control" placeholder="Short Note for Content"')?>
 					</div>
 					<div class="form-group">
 						<?=form_label('Related Link')?>
 						<?php $menus = $this->main_model->get_data('menu_tbl')?>
 						<select name="link" class="form-control">
-							<option value="0">Link with Block</option>
+							<option value="0">Link With Block</option>
 						<?php foreach($menus as $menu):?>
 							<?php $links = $this->main_model->get_limit_datas('link_structure_tbl','menuId',$menu['Id'],'type','Main', 'sort', 'asc')->result_array();?>
 
@@ -31,10 +31,10 @@
 									?>
 									<?php if(!empty($subs)):?>
 										<?php foreach($subs as $sub):?>
-											<option value="<?=$sub['Id']?>"><?=$sub['name']?></option>
+											<option value="<?=$sub['Id']?>" <?=$contentType->relatedLink == $sub['Id']?'selected':''?>><?=$sub['name']?></option>
 										<?php endforeach;?>
 									<?php else:?>
-										<option value="<?=$link['Id']?>"><?=$link['name']?></option>
+										<option value="<?=$link['Id']?>" <?=$contentType->relatedLink == $link['Id']?'selected':''?>><?=$link['name']?></option>
 									<?php endif;?>
 								<?php endforeach;?>
 						<?php endforeach;?>

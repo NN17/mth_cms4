@@ -269,6 +269,10 @@ class Migration extends CI_Model{
 				'type' => 'INT',
 				'constraint' => 5
 				),
+			'relatedBlock' => array(
+				'type' => 'INT',
+				'constraint' => 8
+				),
 			);
 
 		$this->dbforge->add_key('Id',TRUE);

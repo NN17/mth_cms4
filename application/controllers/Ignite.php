@@ -904,8 +904,12 @@ class Ignite extends CI_Controller {
 					}
 					
 				}
+
+				if(empty($data['content'])){
+
+					$data['content'] = 'backend/content';
+				}
 				$data['page'] = $id;
-				$data['content'] = 'backend/content';
 			}
 		
 		$this->load->view('layouts/template',$data);
@@ -924,6 +928,7 @@ class Ignite extends CI_Controller {
 	}
 
 	public function newContentType(){
+		$data['blocks'] = $this->main_model->get_limit_data('blocks_tbl', 'type', 'view')->result();
 		$data['title'] = 'New Content Type';
 		$data['link'] = 'ignite/newContentType';
 		$data['content'] = 'backend/newContentType';
@@ -934,15 +939,47 @@ class Ignite extends CI_Controller {
 		$name = $this->input->post('name');
 		$note = $this->input->post('note');
 		$link = $this->input->post('link');
+		$block = $this->input->post('relatedBlock');
 
 		$insert = array(
 			'name' => $name,
 			'note' => $note,
-			'relatedLink' => $link
+			'relatedLink' => $link,
+			'relatedBlock' => $block
 			);
 		$this->db->insert('content_type_tbl',$insert);
 		$contentTypeId = $this->main_model->max_id('content_type_tbl');
 		redirect('ignite/contentItem/'.$contentTypeId);
+	}
+
+	public function editContentType() {
+		$contentTypeId = $this->uri->segment(2);
+		$data['contentType'] = $this->main_model->get_limit_data('content_type_tbl', 'Id', $contentTypeId)->row();
+		$data['blocks'] = $this->main_model->get_limit_data('blocks_tbl', 'type', 'view')->result();
+
+		$data['title'] = 'Edit Content Type';
+		$data['link'] = 'content-type';
+		$data['content'] = 'backend/editContentType';
+		$this->load->view('layouts/template_back',$data);
+	}
+
+	public function updateContentType() {
+		$contentTypeId = $this->uri->segment(2);
+
+		$name = $this->input->post('name');
+		$note = $this->input->post('note');
+		$link = $this->input->post('link');
+		$block = $this->input->post('relatedBlock');
+
+		$insert = array(
+			'name' => $name,
+			'note' => $note,
+			'relatedLink' => $link,
+			'relatedBlock' => $block
+			);
+		$this->db->where('Id', $contentTypeId);
+		$this->db->update('content_type_tbl',$insert);
+		redirect('content-type');
 	}
 
 	public function contentItem(){
@@ -1028,13 +1065,25 @@ class Ignite extends CI_Controller {
 		$contentType = $this->main_model->get_limit_data('content_type_tbl','Id',$contentTypeId)->row_array();
 
 		$title = $this->input->post('title');
-		$summary = $this->input->post('summary');
+		if(!empty($this->input->post('summary'))) {
+
+			$summary = $this->input->post('summary');
+		}
+			else{
+				$summary = '';
+			}
 		$body = $this->input->post('body');
-		if($contentType['relatedLink'] == 0){
+		if(!empty($this->input->post('link'))){
 			$link = $this->input->post('link');
 		}
 			else{
 				$link = $contentType['relatedLink'];
+			}
+		if($contentType['relatedBlock'] > 0) {
+			$block = $contentType['relatedBlock'];
+		}
+			else{
+				$block = 0;
 			}
 		$publish = $this->input->post('publish');
 		$frontPage = $this->input->post('frontPage');
@@ -1065,13 +1114,13 @@ class Ignite extends CI_Controller {
 			'publishedDate' => $publishedDate,
 			'frontPage' => $frontPage,
 			'showDate' => $showDate,
-			'blockId' => 0,
+			'blockId' => $block,
 			'filterId' => 0,
 			'contentTypeId' => $contentType['Id']
 			);
 
 		$this->db->insert('content_tbl',$insert);
-		redirect('page/'.$link.'/~');
+		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function allContent(){
@@ -1186,7 +1235,7 @@ class Ignite extends CI_Controller {
 
 		$this->db->where('Id',$contentId);
 		$this->db->update('content_tbl',$update);
-		redirect('page/'.$link);
+		redirect('page/'.$link.'/~');
 	}
 
 	public function contentView(){

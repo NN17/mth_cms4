@@ -61,6 +61,32 @@ footer {
 	width: 300px !important;
 }
 
+.product-item {
+	background: #f0f5f9 !important;
+	border-radius: 5px;
+	padding:  20px;
+	min-height: 510px;
+}
+
+.demo-item {
+	background: #ebebeb !important;
+	border-top-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding:  20px;
+}
+
+.product-item img {
+	margin: 10px 0px 10px 0px auto;
+}
+
+.item-head {
+	height: 50px;
+}
+
+.after_content1_wrapper {
+	background: #f0f5f9 !important;
+}
+
 @media only screen and (max-width: 700px) {
   .enterprise-logo {
   	width: 75px;

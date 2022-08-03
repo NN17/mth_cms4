@@ -477,6 +477,15 @@
 			return $count;
 		}
 
+		function get_block_content_data($blockId, $contentType) {
+			$this->db->where('blockId', $blockId);
+			$this->db->where('contentTypeId', $contentType);
+			$this->db->where('published', true);
+			$this->db->order_by('publishedDate', 'ASC');
+			$query = $this->db->get('content_tbl');
+			return $query;
+		}
+
 		// ****************** Form Validation Require (3 Fields) ********************
 
 		function validate_required($var1,$var2,$var3)
@@ -614,6 +623,19 @@
 			$this->db->where('Id',$input);
 			$query = $this->db->get('layout_tbl')->row_array();
 			return $query['name'];
+		}
+
+		function checkContentItem($id, $item) {
+			$this->db->where('contentTypeId', $id);
+			$this->db->where('type', $item);
+			$query = $this->db->get('content_items_tbl')->row();
+			if(!empty($query->Id)) {
+				return true;
+			}
+				else{
+					return false;
+				}
+
 		}
 
 	}
