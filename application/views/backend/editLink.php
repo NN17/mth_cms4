@@ -37,6 +37,10 @@
 					</select>
 				</div>
 				<div class="form-group">
+						<?=form_label('Related URL (Optional)')?>
+						<?=form_input('url', $link['url'],'class="form-control" placeholder="Related URL .."')?>
+					</div>
+				<div class="form-group">
 					<?=form_label('Image')?>
 					<div class="file-upload small-padding">
 						<div class="col-md-4">

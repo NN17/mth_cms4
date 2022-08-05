@@ -1,7 +1,7 @@
 <div class="py-5">
 	<?php $data = $this->main_model->get_block_content_data(8, 2)->result();?>
 
-	<a id="products"><h3 class="text-center text-danger">Fire Extinguisher Products</h3></a>
+	<a id="demostration"><h3 class="text-center text-danger">PRODUCTS</h3></a>
 
 
 	<div class="row mt-5">

@@ -358,13 +358,19 @@ class Migration extends CI_Model{
 				'type' => 'INT',
 				'constraint' => 5
 				),
-			'note' => array(
+			'url' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 200
+				),
+			'note' => array(
+				'type' => 'TEXT'
 				),
 			'img_path' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 200,
+				),
+			'showOnNav' => array(
+				'type' => 'BOOLEAN'
 				),
 			);
 

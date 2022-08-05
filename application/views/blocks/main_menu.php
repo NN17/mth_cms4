@@ -1,4 +1,4 @@
-<?php $links = $this->main_model->get_limit_datas('link_structure_tbl','menuId',$nav_relatedId,'type','Main','sort','asc')->result_array();?>
+<?php $links = $this->main_model->get_main_links($nav_relatedId)->result_array();?>
 
 <?php $slogam = $this->main_model->get_limit_data('slogam_tbl','Id',1)->row_array();?>
 
@@ -14,16 +14,16 @@
             <ul class="navbar-nav mr-auto">
           	<?php foreach($links as $row):?>
           		<?php
-          			$subs = $this->main_model->get_limit_datas('link_structure_tbl','mainMenu',$row['Id'],'type','Sub','Id','asc')->result_array();
+          			$subs = $this->main_model->get_sub_links($row['Id'])->result_array();
           		?>
           		<li class="nav-item <?php if(!empty($subs)){echo 'dropdown';}?>">
-          			<a class="nav-link <?php if(!empty($subs)){echo 'dropdown-toggle';} if($page == $row['Id']){echo 'active';}?>" <?php if(!empty($subs)){echo 'data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"';}else{echo 'href="page/'.$row['Id'].'/~"';}?> >
+          			<a class="nav-link <?php if(!empty($subs)){echo 'dropdown-toggle';} if($page == $row['Id']){echo 'active';}?>" <?php if(!empty($subs)){echo 'data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"';}else{if(empty($row['url'])){echo 'href="page/'.$row['Id'].'/~"';}else{echo 'href="'.$row['url'].'"';}}?> >
           				<?=$row['name']?>
           			</a>
           			<?php if(!empty($subs)):?>
           				<div class="dropdown-menu">
           					<?php foreach($subs as $sub):?>
-      		            		<a class="dropdown-item" href="page/<?=$sub['Id']?>/~"><?=$sub['name']?></a>
+      		            		<a class="dropdown-item" <?=$sub['url'] != ''?'target="_blank"':''?> href="<?=$sub['url'] == ''?'page/'.$sub['Id'].'/~':$sub['url']?>"><?=$sub['name']?></a>
       		            	<?php endforeach;?>
       		         	</div>
           			<?php endif;?>

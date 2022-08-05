@@ -141,6 +141,14 @@ class Ignite extends CI_Controller {
 		$note = $this->input->post('note');
 		$type = $this->input->post('menuType');
 		$main = $this->input->post('mainMenu');
+		$url = $this->input->post('url');
+
+		$showOnNav = $this->input->post('showOnNav');
+
+		if(empty($showOnNav)) {
+			$showOnNav = 0;
+		}
+
 		if($main == ''){
 			$main = 0;
 		}
@@ -158,16 +166,18 @@ class Ignite extends CI_Controller {
 			'type' => $type,
 			'menuId' => $menuId,
 			'mainMenu' => $main,
-			'img_path' => $image
+			'url' => $url,
+			'img_path' => $image,
+			'showOnNav' => $showOnNav
 			);
 		$this->db->insert('link_structure_tbl',$insert);
-		redirect('ignite/newLink/'.$menuId);
+		redirect('create-link/'.$menuId);
 	}
 
 	public function editLink(){
 		$data['title'] = 'Edit Link';
 		$data['link'] = 'ignite/editLink';
-		$linkId = $this->uri->segment(3);
+		$linkId = $this->uri->segment(2);
 
 		$data['link'] = $this->main_model->get_limit_data('link_structure_tbl','Id',$linkId)->row_array();
 		$data['content'] = 'backend/editLink';
@@ -186,6 +196,7 @@ class Ignite extends CI_Controller {
 		if($mainMenu == ''){
 			$mainMenu = 0;
 		}
+		$url = $this->input->post('url');
 		$image = $this->main_model->upload_img('userfile','menu_img');
 		if($image == false){
 			$image = 'null';
@@ -196,12 +207,13 @@ class Ignite extends CI_Controller {
 			'note' => $note,
 			'type' => $menuType,
 			'mainMenu' => $mainMenu,
+			'url' => $url,
 			'img_path' => $image
 			);
 
 		$this->db->where('Id',$linkId);
 		$this->db->update('link_structure_tbl',$update);
-		redirect('ignite/newLink/'.$link['menuId']);
+		redirect('create-link/'.$link['menuId']);
 	}
 
 	public function changeLink(){

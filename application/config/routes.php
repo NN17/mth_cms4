@@ -71,6 +71,7 @@ $route['block-list'] = 'ignite/blockList';
 $route['navigation'] = 'ignite/navigation';
 $route['edit-menu/:num'] = 'ignite/navEdit';
 $route['create-link/:num'] = 'ignite/newLink';
+$route['modify-link/:num'] = 'ignite/editLink';
 $route['block-edit/:num'] = 'ignite/editBlock';
 
 $route['logo-slogam'] = 'ignite/slogam';

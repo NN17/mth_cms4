@@ -36,6 +36,10 @@
 						</select>
 					</div>
 					<div class="form-group">
+						<?=form_label('Related URL (Optional)')?>
+						<?=form_input('url','','class="form-control" placeholder="Related URL .."')?>
+					</div>
+					<div class="form-group">
 						<?=form_label('Image')?>
 						<div class="file-upload small-padding">
 							<div class="col-md-4">
@@ -48,6 +52,11 @@
 								<img id="blah" src="asset/system_img/no-preview-available.png" alt="Image Preview" class="img-fluid" />
 							</div>
 						</div>
+					</div>
+
+					<div class="form-group">
+						<?=form_label('Show On Navigation')?><br/>
+						<?=form_checkbox('showOnNav',true,true,'')?>
 					</div>
 				</div>
 				<div class="card-footer">
@@ -73,14 +82,14 @@
 					<?php endif;?>	
 					<strong class="text-primary">
 						<?=$mainMenu['name'];?></strong> &nbsp;&nbsp;
-						<a href="ignite/editLink/<?=$mainMenu['Id']?>"><i class="fa fa-edit text-warning" ></i></a> | 
+						<a href="modify-link/<?=$mainMenu['Id']?>"><i class="fa fa-edit text-warning" ></i></a> | 
 						<a href="#" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$mainMenu['Id']?>" table="link_structure_tbl" func="newLink-<?=$mainMenu['menuId']?>"><i class="fa fa-trash text-danger"></i></a>
 					
 					<?php if(!empty($subMenu)):?>
 						<?php foreach($subMenu as $sub):?>
 							<li>
 								<span class="text-info"><i class="fa fa-caret-right"></i> <?=$sub['name']?></span> &nbsp;&nbsp;
-								<a href="ignite/editLink/<?=$sub['Id']?>"><i class="fa fa-edit text-warning"></i></a> | 
+								<a href="modify-link/<?=$sub['Id']?>"><i class="fa fa-edit text-warning"></i></a> | 
 								<a href="#" data-toggle="modal" data-target="#Modal" id="confirmDelete" value="<?=$sub['Id']?>" table="link_structure_tbl" func="newLink-<?=$sub['menuId']?>"><i class="fa fa-trash text-danger"></i></a>
 							</li>
 						<?php endforeach;?>

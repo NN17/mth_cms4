@@ -638,4 +638,22 @@
 
 		}
 
+		function get_main_links($menuId) {
+			$this->db->where('menuId', $menuId);
+			$this->db->where('type', 'Main');
+			$this->db->where('showOnNav', true);
+			$this->db->order_by('sort', 'ASC');
+			$query = $this->db->get('link_structure_tbl');
+			return $query;
+		}
+
+		function get_sub_links($mainMenuId) {
+			$this->db->where('mainMenu', $mainMenuId);
+			$this->db->where('type', 'Sub');
+			$this->db->where('showOnNav', true);
+			$this->db->order_by('sort', 'ASC');
+			$query = $this->db->get('link_structure_tbl');
+			return $query;
+		}
+
 	}
