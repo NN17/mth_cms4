@@ -184,7 +184,7 @@
         </button>
       </div>
       <div class="modal-body">
-        	<img src="asset/upload_img/co2.jpg" class="img-fluid" />
+        	<img src="asset/upload_img/co2_system.jpg" class="img-fluid" />
       </div>
     </div>
   </div>
