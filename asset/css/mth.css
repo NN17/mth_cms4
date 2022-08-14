@@ -76,6 +76,12 @@ footer {
 	min-height: 510px;
 }
 
+.mfp-product-item {
+	background: #f0f5f9 !important;
+	border-radius: 5px;
+	padding:  20px;
+}
+
 .demo-item {
 	background: #ebebeb !important;
 	border-top-left-radius: 15px;
@@ -93,6 +99,48 @@ footer {
 
 .after_content1_wrapper {
 	background: #f0f5f9 !important;
+}
+
+.system-left, .system-right {
+	list-style: none;
+}
+
+.system-left {
+	padding-left: 0px;
+}
+
+.system-left li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 500px;
+	padding: 15px;
+	border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px;
+	color: #fff;
+}
+
+ul.system-left li a, ul.system-right li a {
+	text-decoration: none !important;
+	color: #fff !important;
+}
+
+.system-left li:nth-child(odd), .system-right li:nth-child(odd) {
+	background: #005188;
+}
+
+.system-left li:nth-child(even), .system-right li:nth-child(even) {
+	background: #f58b21;
+}
+
+.system-right li {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width: 500px;
+	padding: 15px;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	text-align: right;
+	color:  #fff;
 }
 
 @media only screen and (max-width: 700px) {

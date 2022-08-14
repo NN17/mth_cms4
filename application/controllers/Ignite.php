@@ -1206,6 +1206,13 @@ class Ignite extends CI_Controller {
 		$contentTypeId = $this->uri->segment(3);
 		$contentId = $this->uri->segment(4);
 		$contentType = $this->main_model->get_limit_data('content_type_tbl','Id',$contentTypeId)->row_array();
+		if($contentType['relatedBlock'] > 0) {
+			$block = $this->main_model->get_limit_data('blocks_tbl', 'Id', $contentType['relatedBlock'])->row_array();
+			$page_number = $block['relatedLink'];
+		}
+			else {
+				$page_number = $this->input->post('link');
+			}
 
 		$title = $this->input->post('title');
 		$summary = $this->input->post('summary');
@@ -1247,7 +1254,7 @@ class Ignite extends CI_Controller {
 
 		$this->db->where('Id',$contentId);
 		$this->db->update('content_tbl',$update);
-		redirect('page/'.$link.'/~');
+		redirect('page/'.$page_number.'/~');
 	}
 
 	public function contentView(){

@@ -6,7 +6,8 @@
 	<?php endif;?>
 
 	<h3 class='text-center text-info my-3'><?=$contentData['title']?></h3>
-	<?=$contentData['text']?>
+	
+	<div class="mt-5"><?=$contentData['text']?></div>
 
 	<div class="text-right">
 		<a href="<?=$this->agent->referrer()?>" class="btn btn-warning btn-rounded"> << Back</a>

@@ -27,7 +27,7 @@
 					<?php endif;?>
 				<?php endforeach;?>
 
-				<?php if($contentType['relatedLink'] == 0):?>
+				<?php if($contentType['relatedLink'] == 0 && $contentType['relatedBlock'] == 0):?>
 					<div class="form-group">
 						<?=form_label('Related Link')?>
 						<?php $menus = $this->main_model->get_data('menu_tbl')?>

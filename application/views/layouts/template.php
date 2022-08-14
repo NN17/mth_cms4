@@ -232,6 +232,7 @@
 	<script type="text/javascript" src="asset/js/jquery.datetimepicker.js"></script>
 	<script type="text/javascript" src="asset/js/devrama.js"></script>
 	<script type="text/javascript" src="asset/js/owl.carousel.js"></script>
+	<script type="text/javascript" src="asset/js/pagination.js"></script>
 	<script type="text/javascript" src="asset/js/ignite.js"></script>
 	<script type="text/javascript" src="asset/js/mth.js"></script>
 </body>
