@@ -657,7 +657,7 @@ class Ignite extends CI_Controller {
 				'carouselId' => $carouselId
 				);
 			$this->db->insert('carousel_img_tbl',$insert);
-			redirect('ignite/previewCarousel/'.$carouselId);
+			redirect('preview-carousel/'.$carouselId);
 		}
 			else{
 				$data['carousel'] = $this->main_model->get_limit_data('carousel_tbl','Id',$carouselId)->row_array();
