@@ -1401,7 +1401,7 @@ class Ignite extends CI_Controller {
 		$content = $this->db->get('content_tbl')->result();
 
 		foreach ($content as $row) {
-			$update = str_replace('http://localhost/cms_v4', 'https://www.beta.myanmarthiha.com', $row->text);
+			$update = str_replace('https://www.beta.myanmarthiha.com', 'https://www.myanmarthiha.com', $row->text);
 			$arr = array(
 				'text' => $update
 			);
