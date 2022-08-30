@@ -17,7 +17,7 @@
     			$subs = $this->main_model->get_limit_datas('link_structure_tbl','mainMenu',$row['Id'],'type','Sub','Id','asc')->result_array();
     		?>
     		<li class="nav-item <?php if(!empty($subs)){echo 'dropdown';}?>">
-    			<a class="nav-link <?php if(!empty($subs)){echo 'dropdown-toggle';} if($page == $row['Id']){echo 'active';}?>" <?php if(!empty($subs)){echo 'data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"';}else{ if(empty($row['url'])){echo 'href="page/'.$row['Id'].'/~"';}else{echo 'href="'.$row['url'].'"';}}?> >
+    			<a class="nav-link <?php if(!empty($subs)){echo 'dropdown-toggle';} if($page == $row['Id']){echo 'active';}?>" <?php if(!empty($subs)){echo 'data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"';}else{ if(empty($row['url'])){echo 'href="page/'.$row['Id'].'"';}else{echo 'href="'.$row['url'].'"';}}?> >
     				<?=$row['name']?>
     			</a>
     			<?php if(!empty($subs)):?>

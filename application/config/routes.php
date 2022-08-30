@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['home'] = 'ignite/index';
 
+$route['page/(:num)'] = 'ignite/page';
 $route['page/(:num)/(:any)'] = 'ignite/page';
 
 $route['content-type'] = 'ignite/contentType';
